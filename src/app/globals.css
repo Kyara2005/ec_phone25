@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #050508;
+  --bg-soft: #0a0c12;
+  --bg-elevated: #10131c;
+  --surface: #161b27;
+  --border: rgba(58, 160, 255, 0.18);
+  --blue: #0088ff;
+  --blue-bright: #3aa0ff;
+  --blue-deep: #0055cc;
+  --text: #f4f7ff;
+  --muted: #8b93a7;
+  --success: #25d366;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-blue: var(--blue);
+  --color-blue-bright: var(--blue-bright);
+  --color-blue-deep: var(--blue-deep);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-success: var(--success);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-syne);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-outfit), sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(0, 136, 255, 0.35);
+  color: white;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.8s ease-out 0.15s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.8s ease-out 0.3s both;
+}
+
+.wa-pulse::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--success);
+  animation: pulse-ring 1.8s ease-out infinite;
+  z-index: -1;
+}
+
+.brand-gradient-text {
+  background: linear-gradient(120deg, #ffffff 10%, #3aa0ff 55%, #0088ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 136, 255, 0.28), transparent 55%),
+    radial-gradient(ellipse 40% 40% at 90% 20%, rgba(58, 160, 255, 0.12), transparent 50%),
+    radial-gradient(ellipse 35% 35% at 10% 60%, rgba(0, 85, 204, 0.15), transparent 50%),
+    linear-gradient(180deg, #050508 0%, #080a10 100%);
+}
+
+.section-mesh {
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0, 136, 255, 0.08), transparent 60%),
+    var(--bg-soft);
+}
+
+.product-card {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(58, 160, 255, 0.45);
+  box-shadow: 0 20px 40px -20px rgba(0, 136, 255, 0.35);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.06);
+}
+
+.product-image {
+  transition: transform 0.5s ease;
+}
+
+.link-card {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(0, 136, 255, 0.12);
+  border-color: rgba(58, 160, 255, 0.5);
+}
+
+@keyframes drift-float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(var(--spin, 0deg));
+  }
+  33% {
+    transform: translateY(-18px) translateX(10px) rotate(calc(var(--spin, 0deg) + 6deg));
+  }
+  66% {
+    transform: translateY(10px) translateX(-8px) rotate(calc(var(--spin, 0deg) - 4deg));
+  }
+}
+
+@keyframes arrow-march {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 120px 0;
+  }
+}
+
+.float-drift {
+  animation: drift-float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.arrow-path {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0 18px,
+    rgba(58, 160, 255, 0.35) 18px 22px,
+    transparent 22px 36px
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  animation: arrow-march 2.8s linear infinite;
+}
