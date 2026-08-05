@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/data/products";
+import { withBasePath } from "@/lib/paths";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 sm:flex-row sm:items-start sm:justify-between sm:px-6">
         <div className="text-center sm:text-left">
           <Image
-            src="/logo.png"
+            src={withBasePath("/logo.png")}
             alt="EcPhone"
             width={120}
             height={40}

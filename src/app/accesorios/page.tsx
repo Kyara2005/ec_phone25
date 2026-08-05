@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ProductGrid } from "@/components/ProductGrid";
 import { products, SECTION_BACKGROUNDS } from "@/data/products";
-import { withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Catálogo EcPhone | iPhone, cases y AirPods",
@@ -36,7 +35,7 @@ export default function AccesoriosPage() {
             <div
               className="absolute inset-0 bg-cover bg-center opacity-35"
               style={{
-                backgroundImage: `url(${withBasePath(SECTION_BACKGROUNDS.hero)})`,
+                backgroundImage: `url(${SECTION_BACKGROUNDS.hero})`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/90 to-bg" />

@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/paths";
+
 export type ProductCategory = "iphone" | "accesorio";
 
 export type ProductSpec = {
@@ -19,9 +21,9 @@ export type Product = {
 };
 
 export const SECTION_BACKGROUNDS = {
-  hero: "/sections/hero-bg.png",
-  iphone: "/sections/hero-bg.png",
-  accesorio: "/sections/accesorios-bg.png",
+  hero: withBasePath("/sections/hero-bg.png"),
+  iphone: withBasePath("/sections/hero-bg.png"),
+  accesorio: withBasePath("/sections/accesorios-bg.png"),
 } as const;
 
 export const products: Product[] = [
@@ -247,6 +249,11 @@ export const products: Product[] = [
     description: "Templado 9H con borde negro o transparente.",
   },
 ];
+
+// Prefijo /ec_phone25 en deploy (GitHub Pages); en local no cambia nada.
+for (const product of products) {
+  product.image = withBasePath(product.image);
+}
 
 export const WHATSAPP_NUMBER = "593999023369";
 export const WHATSAPP_DISPLAY = "+593 99 902 3369";

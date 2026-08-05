@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
+import { withBasePath } from "@/lib/paths";
 
 const links = [
   { href: "/#iphones", label: "iPhones" },
@@ -36,7 +37,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:h-20">
         <Link href="/" className="relative flex items-center gap-2" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.png"
+            src={withBasePath("/logo.png")}
             alt="EcPhone"
             width={140}
             height={48}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SECTION_BACKGROUNDS } from "@/data/products";
+import { withBasePath } from "@/lib/paths";
 
 export function Hero() {
   return (
@@ -21,7 +22,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-8 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:pb-24 lg:pt-16">
         <div className="text-center lg:text-left">
           <Image
-            src="/logo.png"
+            src={withBasePath("/logo.png")}
             alt="EcPhone"
             width={320}
             height={120}

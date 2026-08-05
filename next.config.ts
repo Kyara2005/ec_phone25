@@ -8,9 +8,8 @@ const nextConfig: NextConfig = {
   basePath: basePath || undefined,
   assetPrefix: basePath ? `${basePath}/` : undefined,
   images: {
+    // Export estático: no hay optimizador. Prefijamos assets con withBasePath().
     unoptimized: true,
-    loader: "custom",
-    loaderFile: "./src/lib/imageLoader.ts",
     remotePatterns: [
       {
         protocol: "https",
