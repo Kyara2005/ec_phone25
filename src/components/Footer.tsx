@@ -34,6 +34,35 @@ export function Footer() {
           <p className="pt-2 text-xs">© {new Date().getFullYear()} EcPhone</p>
         </div>
       </div>
+
+      <div className="mx-auto mt-10 max-w-6xl border-t border-border px-4 pt-6 sm:px-6">
+        <p className="text-center text-xs leading-relaxed text-muted">
+          Esto es un demo comercial de{" "}
+          <a
+            href="https://fermenta.online"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-blue-bright hover:underline"
+          >
+            Fermenta
+          </a>{" "}
+          para este negocio con mucho esfuerzo. En el caso de ser rechazado
+          completamente, solicitar por favor darlo de baja al número{" "}
+          <a href="tel:+593969088646" className="font-semibold text-text hover:text-blue-bright">
+            0969088646
+          </a>{" "}
+          —{" "}
+          <a
+            href="https://fermenta.online"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-bright"
+          >
+            fermenta.online
+          </a>
+          .
+        </p>
+      </div>
     </footer>
   );
 }
